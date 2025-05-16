@@ -1,23 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
   <head>
     <meta charset="UTF-8" />
     <link rel="shortcut icon" href="https://javier.xyz/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>PINTR - Create plotter-like line drawings from your images</title>
-    <meta property="og:title" content="PINTR" />
-    <meta name="twitter:title" content="PINTR" />
+    <title>zierA-linedrawing</title>
+    <meta property="og:title" content="zierA-linedrawing" />
+    <meta name="twitter:title" content="zierA-linedrawing" />
 
     <meta name="twitter:card" content="summary_large_image" />
 
     <meta
       name="description"
-      content="Create plotter-like line drawings from your images."
+      content="将图片转换为线条艺术画。"
     />
     <meta
       property="og:description"
-      content="Create plotter-like line drawings from your images."
+      content="将图片转换为线条艺术画。"
     />
 
     <link rel="canonical" href="https://javier.xyz/pintr" />
@@ -32,9 +32,8 @@
   <body>
     <div class="app">
       <div class="flex">
-        <h1>PINTR</h1>
         <input id="inputImageFile" type="file" />
-        <button id="inputImageButton" type="file">New image</button>
+        <button id="inputImageButton" type="file">选择新图片</button>
       </div>
 
       <div class="inline">
@@ -44,7 +43,7 @@
 
         <div class="srcimage-container padding">
           <div id="srcImg"></div>
-          <div class="label">Source</div>
+          <div class="label">原图</div>
         </div>
       </div>
 
@@ -52,7 +51,7 @@
 
       <div class="input-container">
         <div class="input">
-          <label for="density">Density</label>
+          <label for="density">线条密度</label>
           <input
             type="range"
             data-start-drawing
@@ -64,7 +63,7 @@
         </div>
 
         <div class="input">
-          <label for="contrast">Contrast</label>
+          <label for="contrast">对比度</label>
           <input
             type="range"
             data-start-drawing
@@ -76,7 +75,7 @@
         </div>
 
         <div class="input">
-          <label for="definition">Definition</label>
+          <label for="definition">清晰度</label>
           <input
             type="range"
             data-start-drawing
@@ -88,7 +87,7 @@
         </div>
 
         <div class="input">
-          <label for="singleLine">Single Line</label>
+          <label for="singleLine">单线模式</label>
           <input
             type="range"
             data-start-drawing
@@ -101,7 +100,7 @@
         </div>
 
         <div class="input">
-          <label for="strokeWidth">Stroke width</label>
+          <label for="strokeWidth">线条宽度</label>
           <input
             type="range"
             data-start-drawing
@@ -114,7 +113,7 @@
         </div>
 
         <div class="input">
-          <label for="strokeColor">Line Color</label>
+          <label for="strokeColor">线条颜色</label>
           <input
             type="color"
             data-start-drawing
@@ -125,31 +124,20 @@
       </div>
 
       <div class="flex">
-        <button id="download">Download PNG</button>
-        <button id="downloadSvg">Download SVG</button>
+        <button id="download">下载 PNG</button>
+        <button id="downloadSvg">下载 SVG</button>
       </div>
 
       <div class="instructions">
-        <strong>1.</strong>Select an image, images with a face, white or light
-        backgrounds and good contrast work better. <strong>2.</strong>Play with
-        the controls. <strong>3.</strong>Download. Your pictures never leave
-        your computer. More information and source available on
-        <a href="https://github.com/javierbyte/pintr">Github</a>.
-      </div>
-
-      <div class="instructions">
-        Created by
-        <a href="https://javier.xyz">javierbyte</a>. This site uses
-        <a href="https://brutalita.com">Brutalita Sans</a>. Follow me on
-        <a href="https://x.com/javierbyte">X</a> to stay updated.
+        <strong>1.</strong>选择一张图片，建议选择人脸、白色或浅色背景、对比度较好的图片。<strong>2.</strong>调整控制参数。<strong>3.</strong>下载。您的图片永远不会离开您的计算机。
       </div>
 
       <div class="experimental--smooth-svg">
-        <div class="instructions">Other Exports:</div>
+        <div class="instructions">其他导出选项：</div>
 
         <div class="input-container">
           <div class="input">
-            <label for="makeSmoothSvg">Smooth SVG</label>
+            <label for="makeSmoothSvg">平滑 SVG</label>
             <input
               data-start-drawing
               type="range"
@@ -166,13 +154,13 @@
           class="padding experimental--smoth-svg--container--warning"
           style="display: none"
         >
-          Smooth SVG is only available for "single line" drawings.
+          平滑 SVG 仅在"单线模式"下可用。
         </div>
 
         <div class="experimental--smoth-svg--container">
           <div class="input-container">
             <div class="input">
-              <label for="smoothingAmount">Smoothing Amount</label>
+              <label for="smoothingAmount">平滑程度</label>
               <input
                 type="range"
                 id="smoothingAmount"
@@ -183,15 +171,15 @@
             </div>
           </div>
           <div class="padding">
-            <div class="label">Smooth SVG</div>
+            <div class="label">平滑 SVG</div>
             <div class="smooth-svg-container"></div>
           </div>
 
-          <button id="downloadSmoothSvg">Download SVG</button>
+          <button id="downloadSmoothSvg">下载 SVG</button>
         </div>
       </div>
 
-      <div class="loading"><span>Loading...</span></div>
+      <div class="loading"><span>加载中...</span></div>
     </div>
     <script type="module" src="main.ts"></script>
 

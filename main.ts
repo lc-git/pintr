@@ -18,7 +18,7 @@ export type configType = {
   strokeColor: string;
 };
 
-const DEFAULT_IMG = '/test.jpg';
+const DEFAULT_IMG = '/zierA_logo.png';
 
 let CONFIG: configType = {
   contrast: 50,

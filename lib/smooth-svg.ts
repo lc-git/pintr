@@ -8,7 +8,8 @@ export function generateSmoothSvg(
     smoothingAmount = 50,
     strokeWidth = 1,
     size,
-  }: { smoothingAmount: number; strokeWidth?: number; size: [number, number] }
+    strokeColor = '#000000',
+  }: { smoothingAmount: number; strokeWidth?: number; size: [number, number]; strokeColor?: string }
 ) {
   const points = coords.map((coord) => coord[0]);
 
@@ -97,7 +98,7 @@ export function generateSmoothSvg(
           : `${acc} ${command(point, i, a)}`,
       ''
     );
-    return `<path d="${d}" fill="none" stroke="black" stroke-width="${strokeWidth}" />`;
+    return `<path d="${d}" fill="none" stroke="${strokeColor}" stroke-width="${strokeWidth}" />`;
   };
 
   // const svg = document.querySelector('.svg')
@@ -108,7 +109,7 @@ export function generateSmoothSvg(
 
   return `<svg viewBox="0 0 ${size[0]} ${
     size[1]
-  }" xmlns="http://www.w3.org/2000/svg" stroke="black">
+  }" xmlns="http://www.w3.org/2000/svg" stroke="${strokeColor}">
     ${svgPath(points, bezierCommand)}
   </svg>
   `;

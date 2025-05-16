@@ -85,7 +85,7 @@ export async function pinterCreator(
   async function render(config: configType) {
     console.log('> Render PINTR', config);
 
-    const { density, singleLine, contrast, definition, strokeWidth } = config;
+    const { density, singleLine, contrast, definition, strokeWidth, strokeColor } = config;
 
     CURRENT_DRAWING_ID = new Date().getTime();
     COORDS = [];
@@ -107,7 +107,7 @@ export async function pinterCreator(
       ])
     );
 
-    const PLUS_COLOR = `rgba(0, 0, 0, 255)`;
+    const PLUS_COLOR = strokeColor;
     const MINUS_COLOR = `rgba(255, 255, 255, ${
       (100 -
         Math.round(

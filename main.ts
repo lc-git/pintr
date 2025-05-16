@@ -15,6 +15,7 @@ export type configType = {
   singleLine: true | false;
   strokeWidth: number;
   smoothingAmount: number;
+  strokeColor: string;
 };
 
 const DEFAULT_IMG = '/test.jpg';
@@ -27,6 +28,7 @@ let CONFIG: configType = {
   singleLine: true,
   strokeWidth: 1,
   smoothingAmount: 50,
+  strokeColor: '#000000',
 };
 
 let GLOBAL: {
@@ -118,6 +120,11 @@ function getInputBoolean(selector: string): true | false {
   return inputEl ? Boolean(Number(inputEl.value)) : false;
 }
 
+function getInputColor(selector: string): string {
+  const inputEl: HTMLInputElement | null = document.querySelector(selector);
+  return inputEl ? inputEl.value : '#000000';
+}
+
 function startNewDrawing() {
   const density = getInputNumber('#density');
   const singleLine = getInputBoolean('#singleLine');
@@ -126,6 +133,7 @@ function startNewDrawing() {
   const strokeWidth = getInputNumber('#strokeWidth');
   const makeSmoothSvg = getInputBoolean('#makeSmoothSvg');
   const smoothingAmount = getInputNumber('#smoothingAmount');
+  const strokeColor = getInputColor('#strokeColor');
 
   CONFIG = {
     density,
@@ -135,6 +143,7 @@ function startNewDrawing() {
     strokeWidth,
     makeSmoothSvg,
     smoothingAmount,
+    strokeColor,
   };
 
   const smoothSvgContainerEl = document.querySelector(

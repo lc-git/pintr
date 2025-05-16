@@ -2,11 +2,11 @@ import type { Coord } from './PINTR';
 
 function generateMultiLineSvg(
   coords: [Coord, Coord][],
-  { strokeWidth = 1, size }: { strokeWidth: number; size: [number, number] }
+  { strokeWidth = 1, size, strokeColor = '#000000' }: { strokeWidth: number; size: [number, number]; strokeColor?: string }
 ) {
   return `<svg viewBox="0 0 ${size[0]} ${
     size[1]
-  }" xmlns="http://www.w3.org/2000/svg" stroke="black" stroke-width="${strokeWidth}">
+  }" xmlns="http://www.w3.org/2000/svg" stroke="${strokeColor}" stroke-width="${strokeWidth}">
 ${coords
   .map((coord) => {
     return `<line x1="${coord[0][0]}" y1="${coord[0][1]}" x2="${coord[1][0]}" y2="${coord[1][1]}"/>`;
@@ -18,14 +18,14 @@ ${coords
 
 function generateSinglePolySvg(
   coords: [Coord, Coord][],
-  { strokeWidth = 1, size }: { strokeWidth: number; size: [number, number] }
+  { strokeWidth = 1, size, strokeColor = '#000000' }: { strokeWidth: number; size: [number, number]; strokeColor?: string }
 ) {
   return `<svg viewBox="0 0 ${size[0]} ${
     size[1]
   }" xmlns="http://www.w3.org/2000/svg">
   <polyline points="${coords
     .map((coordPair) => coordPair[0].join(','))
-    .join(' ')}" fill="none" stroke="black" stroke-width="${strokeWidth}"/>
+    .join(' ')}" fill="none" stroke="${strokeColor}" stroke-width="${strokeWidth}"/>
 </svg>
   `;
 }
@@ -36,6 +36,7 @@ export function generateSvg(
     singleLine: true | false;
     strokeWidth: number;
     size: [number, number];
+    strokeColor?: string;
   }
 ) {
   console.warn('>generateSvg', options);

@@ -36,90 +36,60 @@
         <button id="inputImageButton" type="file">选择新图片</button>
       </div>
 
-      <div class="inline">
+      <div class="inline preview-columns">
         <div class="padding">
           <canvas id="draw"></canvas>
         </div>
-
         <div class="srcimage-container padding">
           <div id="srcImg"></div>
           <div class="label">原图</div>
+        </div>
+        <div class="padding smooth-preview" style="display:none;">
+          <div class="label">平滑 SVG</div>
+          <div class="smooth-svg-container"></div>
         </div>
       </div>
 
       <canvas id="src" style="display: none"></canvas>
 
-      <div class="input-container">
-        <div class="input">
-          <label for="density">线条密度</label>
-          <input
-            type="range"
-            data-start-drawing
-            id="density"
-            min="0"
-            max="100"
-            value="50"
-          />
+      <div class="input-container input-columns">
+        <div class="input-col">
+          <div class="input">
+            <label for="density">线条密度</label>
+            <input type="range" data-start-drawing id="density" min="0" max="100" value="50" />
+          </div>
+          <div class="input">
+            <label for="contrast">对比度</label>
+            <input type="range" data-start-drawing id="contrast" min="0" max="100" value="50" />
+          </div>
+          <div class="input">
+            <label for="definition">清晰度</label>
+            <input type="range" data-start-drawing id="definition" min="0" max="100" value="50" />
+          </div>
+          <div class="input">
+            <label for="strokeWidth">线条宽度</label>
+            <input type="range" data-start-drawing id="strokeWidth" step="0.25" min="0.5" max="5" value="1.5" />
+          </div>
+          <div class="input">
+            <label for="strokeColor">线条颜色</label>
+            <input type="color" data-start-drawing id="strokeColor" value="#000000" />
+          </div>
         </div>
-
-        <div class="input">
-          <label for="contrast">对比度</label>
-          <input
-            type="range"
-            data-start-drawing
-            id="contrast"
-            min="0"
-            max="100"
-            value="50"
-          />
+        <div class="input-col">
+          <div class="input">
+            <label for="singleLine">单线模式</label>
+            <input type="range" data-start-drawing class="toggle" id="singleLine" min="0" max="1" value="1" />
+          </div>
+          <div class="input">
+            <label for="makeSmoothSvg">平滑 SVG</label>
+            <input data-start-drawing type="range" class="toggle" id="makeSmoothSvg" min="0" max="1" value="0" />
+          </div>
         </div>
-
-        <div class="input">
-          <label for="definition">清晰度</label>
-          <input
-            type="range"
-            data-start-drawing
-            id="definition"
-            min="0"
-            max="100"
-            value="50"
-          />
-        </div>
-
-        <div class="input">
-          <label for="singleLine">单线模式</label>
-          <input
-            type="range"
-            data-start-drawing
-            class="toggle"
-            id="singleLine"
-            min="0"
-            max="1"
-            value="1"
-          />
-        </div>
-
-        <div class="input">
-          <label for="strokeWidth">线条宽度</label>
-          <input
-            type="range"
-            data-start-drawing
-            id="strokeWidth"
-            step="0.25"
-            min="0.5"
-            max="5"
-            value="1.5"
-          />
-        </div>
-
-        <div class="input">
-          <label for="strokeColor">线条颜色</label>
-          <input
-            type="color"
-            data-start-drawing
-            id="strokeColor"
-            value="#000000"
-          />
+        <div class="input-col smooth-amount-col" style="display:none;">
+          <div class="input">
+            <label for="smoothingAmount">平滑程度</label>
+            <input type="range" id="smoothingAmount" min="0" max="100" value="50" />
+          </div>
         </div>
       </div>
 
@@ -133,23 +103,6 @@
       </div>
 
       <div class="experimental--smooth-svg">
-        <div class="instructions">其他导出选项：</div>
-
-        <div class="input-container">
-          <div class="input">
-            <label for="makeSmoothSvg">平滑 SVG</label>
-            <input
-              data-start-drawing
-              type="range"
-              class="toggle"
-              id="makeSmoothSvg"
-              min="0"
-              max="1"
-              value="0"
-            />
-          </div>
-        </div>
-
         <div
           class="padding experimental--smoth-svg--container--warning"
           style="display: none"

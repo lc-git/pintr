@@ -286,3 +286,51 @@ input[type='range'].toggle::-moz-range-thumb {
   display: none;
   padding-bottom: 64px;
 }
+
+.preview-columns {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+.smooth-preview {
+  min-width: var(--sizew);
+  max-width: calc(100vw - 32px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.smooth-svg-container {
+  width: var(--sizew);
+  height: var(--sizeh);
+  background: #fff;
+}
+.input-columns {
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+}
+.input-col {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 220px;
+}
+@media (max-width: 1200px) {
+  .preview-columns {
+    flex-direction: column;
+    gap: 0;
+  }
+  .smooth-preview {
+    min-width: unset;
+    width: 100%;
+  }
+}
+@media (max-width: 800px) {
+  .input-columns {
+    flex-direction: column;
+    gap: 0;
+  }
+  .input-col {
+    min-width: unset;
+  }
+}

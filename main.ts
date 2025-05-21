@@ -146,15 +146,26 @@ function startNewDrawing() {
     strokeColor,
   };
 
+  // 控制平滑SVG预览和参数显示
+  const smoothPreview = document.querySelector('.smooth-preview') as HTMLElement;
+  const smoothAmountCol = document.querySelector('.smooth-amount-col') as HTMLElement;
+  if (makeSmoothSvg) {
+    if (smoothPreview) smoothPreview.style.display = '';
+    if (smoothAmountCol) smoothAmountCol.style.display = '';
+  } else {
+    if (smoothPreview) smoothPreview.style.display = 'none';
+    if (smoothAmountCol) smoothAmountCol.style.display = 'none';
+  }
+
   const smoothSvgContainerEl = document.querySelector(
     '.experimental--smoth-svg--container'
   ) as HTMLElement;
-  smoothSvgContainerEl.style.display = makeSmoothSvg ? 'block' : 'none';
+  if (smoothSvgContainerEl) smoothSvgContainerEl.style.display = 'none';
 
   const smooghSvgContainerWarningEl = document.querySelector(
     '.experimental--smoth-svg--container--warning'
   ) as HTMLElement;
-  smooghSvgContainerWarningEl.style.display = singleLine ? 'none' : 'block';
+  if (smooghSvgContainerWarningEl) smooghSvgContainerWarningEl.style.display = singleLine ? 'none' : 'block';
 
   main(GLOBAL.currentImgSrc);
 }

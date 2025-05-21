@@ -334,3 +334,78 @@ input[type='range'].toggle::-moz-range-thumb {
     min-width: unset;
   }
 }
+
+.text-input-panel {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin: 16px 0 0 0;
+  align-items: center;
+}
+.text-input-panel .input {
+  margin: 8px 16px 8px 0;
+  display: flex;
+  align-items: center;
+}
+.text-input-panel label {
+  min-width: 80px;
+  font-size: 1rem;
+  color: #34495e;
+}
+.text-input-panel input[type='text'] {
+  font-size: 1rem;
+  padding: 4px 8px;
+  border: 2px solid #4e03ca;
+  border-radius: 4px;
+  margin-left: 8px;
+}
+.text-input-panel select {
+  font-size: 1rem;
+  padding: 4px 8px;
+  border: 2px solid #4e03ca;
+  border-radius: 4px;
+  margin-left: 8px;
+}
+.text-input-panel input[type='file'] {
+  margin-left: 8px;
+}
+#inputTextButton {
+  margin-left: 8px;
+  background: #fff;
+  border: 3px solid #4e03ca;
+  color: #4e03ca;
+}
+#inputTextButton:hover {
+  background: #4e03ca;
+  color: #fff;
+}
+
+.font-upload-btn {
+  display: inline-block;
+  padding: 6px 16px;
+  background: #fff;
+  border: 2px solid #4e03ca;
+  color: #4e03ca;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 8px;
+  font-size: 1rem;
+  transition: background 0.2s, color 0.2s;
+}
+.font-upload-btn:hover {
+  background: #4e03ca;
+  color: #fff;
+}
+#fontSizeRange {
+  margin-left: 8px;
+  width: 120px;
+  vertical-align: middle;
+}
+#fontSizeValue {
+  display: inline-block;
+  min-width: 24px;
+  text-align: right;
+  margin-left: 8px;
+  color: #4e03ca;
+  font-weight: bold;
+}
